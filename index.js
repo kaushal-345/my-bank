@@ -103,9 +103,9 @@ function chkUser() {
 function showForm() {
   let str = `
   <h2>Registration Form</h2>
-  <p><input type="text" id="name" placeholder="Name"></p>
-  <p><input type="text" id="email" placeholder="Email"></p>
-  <p><input type="password" id="password" placeholder="Password"></p>
+  <p><input type="text" id="name" required placeholder="Name"></p>
+  <p><input type="text" id="email" required placeholder="Email"></p>
+  <p><input type="password" id="password" required placeholder="Password"></p>
   <p><input type="date" id="dob"></p>
   <p><button onclick='addUser()'>Submit</button></p>
   <p>Already a member?<button onclick='showLogin()'>Login Here</button></p>
@@ -117,12 +117,15 @@ function showLogin() {
   <div>
       <h2>Login Form</h2>
       <div id='msg'></div>
-      <p><input id="email" type="text"></p>
-      <p><input id="password" type="password"></p>
+      <p><input type="text" id="email" required placeholder="Enter email"></p>
+      <p><input type="password" id="password" required placeholder="Enter password"></p>
       <button onclick='chkUser()'>Log In</button>
       <p><button onclick='showForm()'>Create Account</button></p>
   </div>
   `;
+  for(let i=0; i<users.length;i++){
+    str+= `${users[i].name}`
+  }
   root.innerHTML = str;
 }
 
